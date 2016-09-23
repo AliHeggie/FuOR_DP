@@ -31,4 +31,4 @@ def recDC(coinValueList,change,knownResults):
 
 #print(recMC([1,5,10,25],63))
 
-print(recDC([1,5,10,25],63,[0]*64))
+print(recDC([1,5,10,25,21],63,[0]*64))
