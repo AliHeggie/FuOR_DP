@@ -1,3 +1,5 @@
+# Coin change example from http://interactivepython.org/runestone/static/pythonds/Recursion/DynamicProgramming.html
+
 def recMC(coinValueList,change):
    minCoins = change
    if change in coinValueList:
