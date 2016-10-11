@@ -1,4 +1,4 @@
-# Excercise 2 from FuOR tutorial 1
+# Excercise 6 from FuOR tutorial 1
 from __future__ import division
 
 def recGas(Price,CurrentVolume,ExtractionLimit):#,CurrentInventory,InventoryCost,InventoryLimit):
