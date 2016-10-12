@@ -8,18 +8,13 @@ def recEsp(PumpProfit,PumpPower,PowerSupply):
     elif len(PumpProfit) <=1 and PumpPower[0]>PowerSupply:
             MaxProfit = 0
     else:
-         for p in range(len(PumpPower)):
-             if PumpPower[p] <=PowerSupply:
-                 remainingPumpProfit = PumpProfit
-                 remainingPumpPower = PumpPower
-                 remainingPowerSupply = PowerSupply - PumpPower[p]
-                 del remainingPumpProfit[p]
-                 del remainingPumpPower[p]
-                 profit = PumpProfit[p] + recEsp(remainingPumpProfit,remainingPumpPower,remainingPowerSupply)
-             else:
-                profit = 0
-             if profit > MaxProfit:
-                MaxProfit = profit
+
+         if PowerSupply>= PumpPower[0]:
+             profitTakePump  = PumpProfit[0] + recEsp(PumpProfit[1:len(PumpProfit)],PumpPower[1:len(PumpPower)],PowerSupply-PumpPower[0])
+             profitLeavePump = recEsp(PumpProfit[1:len(PumpProfit)],PumpPower[1:len(PumpPower)],PowerSupply)
+             MaxProfit = max(profitLeavePump,profitTakePump)
+         else:
+             MaxProfit = recEsp(PumpProfit[1:len(PumpProfit)],PumpPower[1:len(PumpPower)],PowerSupply)
     return MaxProfit
 
 PumpPower = [2,3,2,4,6]
